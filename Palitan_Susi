@@ -34,7 +34,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Icon = "rbxthumb://type=Asset&id=9649923610&w=150&h=150"})
 Duration = 16;
 wait(1)      
-loadstring(game:HttpGet("https://raw.githubusercontent.com/FUCKYOUDUMBASSBITCHASSUGLYASSGOOFYASS/FUCKYOUUGLYASSGOOFYASSBITCHASSIDONTGIVEAFUCKYOUSTUPIDMOTHERFUCKEROKAY/main/Ito_Ang_Main"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/Ito_PoMain"))()
     else
 for i,v in pairs(game.CoreGui:GetDescendants()) do
  if v.Name == "Main" then
