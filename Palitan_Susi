@@ -28,12 +28,50 @@ end
     local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3094993009"
 Sound:Play()
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = ("Checking the key...");
-	Text = "Key updates every 24 hours.";
-	Icon = "rbxthumb://type=Asset&id=9649923610&w=150&h=150"})
-Duration = 16;
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System", "Checking The Key...", 3)
 wait(1)      
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://1584394759"
+Sound:Play()
+notify("Key System", "Key Correct!", 3)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/Ito_PoMain"))()
     else
 for i,v in pairs(game.CoreGui:GetDescendants()) do
@@ -44,13 +82,50 @@ end
     local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3094993009"
 Sound:Play()
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = ("Checking the key...");
-	Text = "Key updates every 24 hours.";
-	Icon = "rbxthumb://type=Asset&id=9649923610&w=150&h=150"})
-Duration = 16;
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System", "Checking The Key...", 3)
 wait(1.5)
-        game.Players.LocalPlayer:Kick("Invalid Key/Key Expired!")
+        -- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://136075117"
+Sound:Play()
+notify("Key System", "Incorrect Key / Key Expired!", 3)
     end
 end)
 
@@ -59,11 +134,26 @@ Section:NewButton("Get Key", "ButtonInfo", function()
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3398620867"
 Sound:Play()
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = ("Key System");
-	Text = "Key has been copied to your clipboard.";
-	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
-Duration = 16;
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System", "The key has been copied to your clipboard. paste it in on google/chrome and complete the key system to able to use the script!", 3)
 setclipboard("https://bstlar.com/Sg/Ayo-Key")
 end)
 
@@ -73,21 +163,51 @@ Section:NewButton("Youtube", "ButtonInfo", function()
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3398620867"
 Sound:Play()
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = ("Youtube Channel");
-	Text = "My Youtube Channel has been copied to your clipboard.";
-	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
-Duration = 16;
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Youtube Channel", "The link has been copied to your clipboard.", 3)
 setclipboard("https://youtube.com/@BalligusapoYT")
 end)
 Section:NewButton("Discord Server", "ButtonInfo", function()
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3398620867"
 Sound:Play()
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = ("Discord Server");
-	Text = "My Discord Server has been copied to your clipboard.";
-	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
-Duration = 16;
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Discord Server", "The link has been copied to your clipboard.", 3)
 setclipboard("https://discord.gg/vzF3zHcNeU")
 end)
