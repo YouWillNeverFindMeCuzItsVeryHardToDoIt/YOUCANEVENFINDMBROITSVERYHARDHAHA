@@ -1,0 +1,93 @@
+local keys = {"sorryforit", "uloltangabobo", "uloltangabobo"} -- key here
+local userkey = ""
+
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Balli Hood Gui Key System", "DarkTheme")
+local Tab = Window:NewTab("Key System")
+local Section = Tab:NewSection("Key System")
+
+Section:NewTextBox("Enter Key Here", "TextboxInfo", function(txt)
+    userkey = txt -- Update the userkey variable with the entered key
+end)
+
+Section:NewButton("Check Key", "ButtonInfo", function()
+    local isKeyCorrect = false
+    for i, v in pairs(keys) do
+        if userkey == v then
+            isKeyCorrect = true
+            break
+        end
+    end
+
+    if isKeyCorrect then
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+ if v.Name == "Main" then
+  v:Destroy()
+ end
+end
+    local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3094993009"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = ("Checking the key...");
+	Text = "Key updates every 24 hours.";
+	Icon = "rbxthumb://type=Asset&id=9649923610&w=150&h=150"})
+Duration = 16;
+wait(1)      
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FUCKYOUDUMBASSBITCHASSUGLYASSGOOFYASS/FUCKYOUUGLYASSGOOFYASSBITCHASSIDONTGIVEAFUCKYOUSTUPIDMOTHERFUCKEROKAY/main/Ito_Ang_Main"))()
+    else
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+ if v.Name == "Main" then
+  v:Destroy()
+ end
+end
+    local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3094993009"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = ("Checking the key...");
+	Text = "Key updates every 24 hours.";
+	Icon = "rbxthumb://type=Asset&id=9649923610&w=150&h=150"})
+Duration = 16;
+wait(1.5)
+        game.Players.LocalPlayer:Kick("Invalid Key/Key Expired!")
+    end
+end)
+
+local Section = Tab:NewSection("Get Key")
+Section:NewButton("Get Key", "ButtonInfo", function()
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3398620867"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = ("Key System");
+	Text = "Key has been copied to your clipboard.";
+	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
+Duration = 16;
+setclipboard("https://bstlar.com/Sg/Key-Systemss")
+end)
+
+local Tab = Window:NewTab("Social Media")
+local Section = Tab:NewSection("Social Media")
+Section:NewButton("Youtube", "ButtonInfo", function()
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3398620867"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = ("Youtube Channel");
+	Text = "My Youtube Channel has been copied to your clipboard.";
+	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
+Duration = 16;
+setclipboard("https://youtube.com/@BalligusapoYT")
+end)
+Section:NewButton("Discord Server", "ButtonInfo", function()
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3398620867"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = ("Discord Server");
+	Text = "My Discord Server has been copied to your clipboard.";
+	Icon = "rbxthumb://type=Asset&id=13911475187&w=150&h=150"})
+Duration = 16;
+setclipboard("https://discord.gg/vzF3zHcNeU")
+end)
