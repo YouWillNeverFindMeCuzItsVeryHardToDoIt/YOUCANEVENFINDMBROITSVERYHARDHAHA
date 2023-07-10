@@ -69,7 +69,7 @@ end
 
 -- Use the func
 notify("Key System", "Key Correct!", 3)
-loadstring(game:HttpGet("https://pastebin.com/raw/TsjjXqPD"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/Trader"))()
 end
 end)
 
