@@ -221,6 +221,12 @@ game.Players.LocalPlayer.Character.Head.Anchored = false
 		game.Players.LocalPlayer:Kick("User BANNED")
 
     end
+    
+    if cmd == "fling" then
+
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(1000,1000,1000)
+
+    end
 
 if cmd == "benx" then
 local vim = game:service("VirtualInputManager")
