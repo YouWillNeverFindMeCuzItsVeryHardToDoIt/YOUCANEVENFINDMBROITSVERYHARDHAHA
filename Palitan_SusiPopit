@@ -1,0 +1,196 @@
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+
+local key = "Popit" -- Change this to your desired key
+
+local keyGui = Instance.new("Frame")
+keyGui.Size = UDim2.new(0, 300, 0, 220)
+keyGui.Position = UDim2.new(0.5, -150, 0.5, -100)
+keyGui.BackgroundColor3 = Color3.fromRGB(0, 0, 50)
+keyGui.BorderColor3 = Color3.fromRGB(255, 0, 0)
+keyGui.BorderSizePixel = 1
+keyGui.Parent = gui
+
+local keyTitle = Instance.new("TextLabel")
+keyTitle.Size = UDim2.new(1, 0, 0, 50)
+keyTitle.Position = UDim2.new(0, 0, 0, 0)
+keyTitle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+keyTitle.Text = "POP IT GUI"
+keyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+keyTitle.Font = Enum.Font.GothamBold
+keyTitle.TextSize = 20
+keyTitle.Parent = keyGui
+
+local keyTextBox = Instance.new("TextBox")
+keyTextBox.Text = "Enter Key Here"
+keyTextBox.Size = UDim2.new(0, 200, 0, 30)
+keyTextBox.Position = UDim2.new(0.5, -100, 0, 80)
+keyTextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+keyTextBox.BorderColor3 = Color3.fromRGB(255, 0, 0)
+keyTextBox.BorderSizePixel = 1
+keyTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+keyTextBox.Font = Enum.Font.GothamBold
+keyTextBox.TextSize = 14
+keyTextBox.Parent = keyGui
+
+local keyButton = Instance.new("TextButton")
+keyButton.Size = UDim2.new(0, 100, 0, 30)
+keyButton.Position = UDim2.new(0.5, -50, 0, 140)
+keyButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+keyButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+keyButton.BorderSizePixel = 1
+keyButton.Text = "Confirm"
+keyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+keyButton.Font = Enum.Font.GothamBold
+keyButton.TextSize = 14
+keyButton.Parent = keyGui
+
+keyButton.MouseButton1Click:Connect(function()
+    if keyTextBox.Text == key then
+        keyGui:Destroy()
+        -- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System", "Key Correct!", 3)
+loadstring(game:HttpGet("https://pastebin.com/raw/TsjjXqPD"))()
+end
+end)
+
+local mamas = Instance.new("TextButton")
+mamas.Size = UDim2.new(0, 100, 0, 30)
+mamas.Position = UDim2.new(0.5, -50, 0.2, 140)
+mamas.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mamas.BorderColor3 = Color3.fromRGB(255, 0, 0)
+mamas.BorderSizePixel = 1
+mamas.Text = "Get Key"
+mamas.TextColor3 = Color3.fromRGB(255, 255, 255)
+mamas.Font = Enum.Font.GothamBold
+mamas.TextSize = 14
+mamas.Parent = keyGui
+
+mamas.MouseButton1Click:Connect(function()
+setclipboard("")
+wait()
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System!", "Key has been copied to your clipboard. Copy & paste in chrome/google and complete the link to get the key.", 3)
+end)
+
+local lola = Instance.new("TextButton")
+lola.Size = UDim2.new(0, 100, 0, 30)
+lola.Position = UDim2.new(0.5, 50, 0.2, 140)
+lola.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+lola.BorderColor3 = Color3.fromRGB(255, 0, 0)
+lola.BorderSizePixel = 1
+lola.Text = "Close"
+lola.TextColor3 = Color3.fromRGB(255, 255, 255)
+lola.Font = Enum.Font.GothamBold
+lola.TextSize = 14
+lola.Parent = keyGui
+
+lola.MouseButton1Click:Connect(function()
+keyGui.Visible = false
+end)
+
+-- Create a ScreenGui to hold the GUI elements
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- Create the text button
+local textButton = Instance.new("TextButton")
+textButton.Text = "Open"
+textButton.Size = UDim2.new(0, 100, 0, 30) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 275, 0.2, 140) -- Adjusted position to match the image
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Parent = gui
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = false
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    Button.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    keyGui.Visible = true
+end)
