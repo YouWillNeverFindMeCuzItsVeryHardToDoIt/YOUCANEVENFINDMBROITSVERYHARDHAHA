@@ -1,0 +1,4817 @@
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local changeframename = Instance.new("Frame")
+changeframename.Size = UDim2.new(0, 450, 0, 250)
+changeframename.Position = UDim2.new(0, 200, 0, 10)
+changeframename.BackgroundColor3 = Color3.new(0, 0, 0)
+changeframename.BorderColor3 = Color3.new(255, 0, 0)
+changeframename.BorderSizePixel = 1
+changeframename.Active = true
+changeframename.Draggable = true
+changeframename.Parent = gui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Puzzle Key"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Puzzle Key"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Puzzler Head"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Puzzler Head"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Lil Dude"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Lil Dude"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "F"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "F"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Rainbow Star"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Rainbow Star"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Hand Rainbow"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Hand Rainbow"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Close GUI"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.4, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+changeframename.Visible = false
+end)
+-----------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Next"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.1, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+changeframename.Visible= false
+wait()
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local mama = Instance.new("Frame")
+mama.Size = UDim2.new(0, 450, 0, 250)
+mama.Position = UDim2.new(0, 200, 0, 10)
+mama.BackgroundColor3 = Color3.new(0, 0, 0)
+mama.BorderColor3 = Color3.new(255, 0, 0)
+mama.BorderSizePixel = 1
+mama.Active = true
+mama.Draggable = true
+mama.Parent = gui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Corazón Cake"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(0, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Corazón Cake"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Heart Balloon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Heart Balloon"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Heart Gift"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+local args = {
+    [1] = "Heart Gift"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))    
+end)
+
+------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Heart Headphones"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+local args = {
+    [1] = "Heart Headphones"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Heart Light"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Heart Light"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "A"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "A"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Next"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.1, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+mama.Visible = false
+wait()
+mama.Visible = false
+wait()
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local mama = Instance.new("Frame")
+mama.Size = UDim2.new(0, 450, 0, 250)
+mama.Position = UDim2.new(0, 200, 0, 10)
+mama.BackgroundColor3 = Color3.new(0, 0, 0)
+mama.BorderColor3 = Color3.new(255, 0, 0)
+mama.BorderSizePixel = 1
+mama.Active = true
+mama.Draggable = true
+mama.Parent = gui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Gold Coin"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Gold Coin"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Helloshi"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Helloshi"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Air"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Air"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Egg"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+local args = {
+    [1] = "Box Toy Egg"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Box Toy"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Box Toy"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Noob"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Noob"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Next"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.1, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+mama.Visible = false
+wait()
+mama.Visible = false
+wait()
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local mama = Instance.new("Frame")
+mama.Size = UDim2.new(0, 450, 0, 250)
+mama.Position = UDim2.new(0, 200, 0, 10)
+mama.BackgroundColor3 = Color3.new(0, 0, 0)
+mama.BorderColor3 = Color3.new(255, 0, 0)
+mama.BorderSizePixel = 1
+mama.Active = true
+mama.Draggable = true
+mama.Parent = gui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Inxta"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Inxta"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "XOX Controller"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "XOX Controller"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Tweet"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Tweet"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Tix Tox"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+local args = {
+    [1] = "Tix Tox"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Next"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.1, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+mama.Visible = false
+wait()
+mama.Visible = false
+wait()
+local gui = Instance.new("ScreenGui")
+gui.Name = "RobloxGUI"
+gui.Parent = game.CoreGui
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local mama = Instance.new("Frame")
+mama.Size = UDim2.new(0, 450, 0, 250)
+mama.Position = UDim2.new(0, 200, 0, 10)
+mama.BackgroundColor3 = Color3.new(0, 0, 0)
+mama.BorderColor3 = Color3.new(255, 0, 0)
+mama.BorderSizePixel = 1
+mama.Active = true
+mama.Draggable = true
+mama.Parent = gui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+
+end)
+
+--------------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 150, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+---------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 50, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Back"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 250, 0.1, 0) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+mama.Visible = false
+wait()
+changeframename.Visible = true
+end)
+
+----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 0.1, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.1, 20 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.5, 1 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   
+end)
+
+---------------------------
+
+local ayo = Instance.new("TextLabel")
+ayo.Text = "Page 5"
+ayo.Size = UDim2.new(0, 455, 0, 30) -- Adjusted size to match the image
+ayo.Position = UDim2.new(0.1, 180, 1,1) -- Adjusted position to match the image
+ayo.AnchorPoint = Vector2.new(0.5, 0.5)
+ayo.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ayo.TextColor3 = Color3.fromRGB(255, 255, 255)
+ayo.Font = Enum.Font.SourceSans
+ayo.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+ayo.BorderSizePixel = 0
+ayo.Active = true
+ayo.Draggable = false
+ayo.Parent = mama
+ayo.TextSize = 26
+end)
+
+----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 0.1, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.1, 20 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Coming Soon"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.5, 1 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   
+end)
+
+local lmao = Instance.new("TextLabel")
+lmao.Text = "Page 4"
+lmao.Size = UDim2.new(0, 455, 0, 30) -- Adjusted size to match the image
+lmao.Position = UDim2.new(0.1, 180, 1,1) -- Adjusted position to match the image
+lmao.AnchorPoint = Vector2.new(0.5, 0.5)
+lmao.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+lmao.TextColor3 = Color3.fromRGB(255, 255, 255)
+lmao.Font = Enum.Font.SourceSans
+lmao.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+lmao.BorderSizePixel = 0
+lmao.Active = true
+lmao.Draggable = false
+lmao.Parent = mama
+lmao.TextSize = 26
+end)
+
+----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy House"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 0.1, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy  House"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Sanic"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Sanic"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy SandMan"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy SandMan"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Lem"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Lem"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Demogorgan"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.1, 20 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Demogorgan"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Demogorgan Kawaii"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.5, 1 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   local args = {
+    [1] = "Demogorgan Kawaii"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------
+
+local ayo = Instance.new("TextLabel")
+ayo.Text = "Page 3"
+ayo.Size = UDim2.new(0, 455, 0, 30) -- Adjusted size to match the image
+ayo.Position = UDim2.new(0.1, 180, 1,1) -- Adjusted position to match the image
+ayo.AnchorPoint = Vector2.new(0.5, 0.5)
+ayo.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ayo.TextColor3 = Color3.fromRGB(255, 255, 255)
+ayo.Font = Enum.Font.SourceSans
+ayo.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+ayo.BorderSizePixel = 0
+ayo.Active = true
+ayo.Draggable = false
+ayo.Parent = mama
+ayo.TextSize = 26
+end)
+
+----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "B"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 0.1, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   local args = {
+    [1] = "B"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args)) 
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "C"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "C"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "D"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "D"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "E"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 26
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   local args = {
+    [1] = "E"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args)) 
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Luisi"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.1, 20 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Luisi"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Omb Bomb"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.5, 1 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = mama
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   local args = {
+    [1] = "Omb Bomb"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------
+
+local lmao = Instance.new("TextLabel")
+lmao.Text = "Page 2"
+lmao.Size = UDim2.new(0, 455, 0, 30) -- Adjusted size to match the image
+lmao.Position = UDim2.new(0.1, 180, 1,1) -- Adjusted position to match the image
+lmao.AnchorPoint = Vector2.new(0.5, 0.5)
+lmao.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+lmao.TextColor3 = Color3.fromRGB(255, 255, 255)
+lmao.Font = Enum.Font.SourceSans
+lmao.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+lmao.BorderSizePixel = 0
+lmao.Active = true
+lmao.Draggable = false
+lmao.Parent = mama
+lmao.TextSize = 26
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton) 
+end)
+
+textButton.MouseButton1Click:Connect(function()
+mama.Visible = false
+end)
+
+----------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Silver Trophy"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 0.1, 0.1, 20) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Silver"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Retro Bike"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, -25) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Retro Bike"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Green Ooze"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0, 45, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Green Ooze"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Box Toy Harambe"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.6, 50) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 10
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Box Toy Harambe"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+--------------------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Heart Lightstick"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.1, 20 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    local args = {
+    [1] = "Heart Lightstick"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+-----------------------
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Markio"
+textButton.Size = UDim2.new(0, 70, 0, 50) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.3, 1, 0.5, 1 ) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 16
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+   local args = {
+    [1] = "Markio"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BuyItemCash"):FireServer(unpack(args))
+end)
+
+---------------------------
+
+local textButton = Instance.new("TextLabel")
+textButton.Text = "Page 1"
+textButton.Size = UDim2.new(0, 455, 0, 30) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.1, 180, 1,1) -- Adjusted position to match the image
+textButton.BorderColor3 = Color3.new(255, 0, 0)
+textButton.AnchorPoint = Vector2.new(0.5, 0.5)
+textButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Active = true
+textButton.Draggable = false
+textButton.Parent = changeframename
+textButton.TextSize = 26
+
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = true
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+   
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+-- Create a ScreenGui to hold the GUI elements
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- Create the text button
+local textButton = Instance.new("TextButton")
+textButton.Text = "Open"
+textButton.Size = UDim2.new(0, 100, 0, 30) -- Adjusted size to match the image
+textButton.Position = UDim2.new(0.5, 275, 0.2, 180) -- Adjusted position to match the image
+textButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+textButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+textButton.Font = Enum.Font.SourceSans
+textButton.FontSize = Enum.FontSize.Size24 -- Adjusted font size to match the image
+textButton.BorderSizePixel = 1
+textButton.Parent = gui
+
+local function dragify(Button)
+    local dragToggle = nil
+    local dragSpeed = 0.25 -- You can edit this.
+    local dragInput = nil
+    local dragStart = nil
+    local startPos = nil
+
+    local function updateInput(input)
+        local Delta = input.Position - dragStart
+        local Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + Delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + Delta.Y
+        )
+        game:GetService("TweenService"):Create(Button, TweenInfo.new(0.25), {Position = Position}):Play()
+    end
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragToggle = false
+            dragStart = input.Position
+            startPos = Button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragToggle = false
+                end
+            end)
+        end
+    end)
+
+    Button.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragToggle then
+            updateInput(input)
+        end
+    end)
+end
+
+dragify(textButton)
+
+textButton.MouseButton1Click:Connect(function()
+    -- Add your text button script here
+    changeframename.Visible = true
+end)
