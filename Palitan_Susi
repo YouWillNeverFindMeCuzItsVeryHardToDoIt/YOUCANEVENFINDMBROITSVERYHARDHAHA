@@ -211,3 +211,24 @@ end
 notify("Discord Server", "The link has been copied to your clipboard.", 3)
 setclipboard("https://discord.gg/vzF3zHcNeU")
 end)
+
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key Changed!", "July 10, 2023", 3)
