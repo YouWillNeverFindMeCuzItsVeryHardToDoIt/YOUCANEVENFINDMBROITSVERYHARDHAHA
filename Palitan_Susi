@@ -1,4 +1,4 @@
-local keys = {"wspfool", "uloltangabobo", "uloltangabobo"} -- key here
+local keys = {"thatiscap", "uloltangabobo", "uloltangabobo"} -- key here
 local userkey = ""
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
@@ -154,7 +154,7 @@ end
 
 -- Use the func
 notify("Key System", "The key has been copied to your clipboard. paste it in on google/chrome and complete the key system to able to use the script!", 3)
-setclipboard("https://bstlar.com/Sg/Wow")
+setclipboard("https://bstlar.com/Sg/Keye")
 end)
 
 local Tab = Window:NewTab("Social Media")
