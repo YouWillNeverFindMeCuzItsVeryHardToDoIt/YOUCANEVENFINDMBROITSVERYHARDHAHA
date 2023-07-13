@@ -86,7 +86,7 @@ mamas.TextSize = 14
 mamas.Parent = keyGui
 
 mamas.MouseButton1Click:Connect(function()
-setclipboard("")
+setclipboard("https://bstlar.com/Sg/Poppp")
 wait()
 -- [[ fnl example ]] --
 
