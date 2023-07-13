@@ -2,7 +2,7 @@ local gui = Instance.new("ScreenGui")
 gui.Name = "RobloxGUI"
 gui.Parent = game.CoreGui
 
-local key = "release" -- Change this to your desired key
+local key = "newrelease" -- Change this to your desired key
 
 local keyGui = Instance.new("Frame")
 keyGui.Size = UDim2.new(0, 300, 0, 220)
