@@ -2,7 +2,7 @@ local gui = Instance.new("ScreenGui")
 gui.Name = "RobloxGUI"
 gui.Parent = game.CoreGui
 
-local key = "newrelease" -- Change this to your desired key
+local key = "popitw" -- Change this to your desired key
 
 local keyGui = Instance.new("Frame")
 keyGui.Size = UDim2.new(0, 300, 0, 220)
@@ -86,7 +86,7 @@ mamas.TextSize = 14
 mamas.Parent = keyGui
 
 mamas.MouseButton1Click:Connect(function()
-setclipboard("https://bstlar.com/Sg/Poppp")
+setclipboard("https://bstlar.com/Sg/Pop")
 wait()
 -- [[ fnl example ]] --
 
@@ -194,3 +194,24 @@ textButton.MouseButton1Click:Connect(function()
     -- Add your text button script here
     keyGui.Visible = true
 end)
+
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key Changed!", "July 14, 2023", 3)
