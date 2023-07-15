@@ -1,4 +1,4 @@
-local keys = {"lmaobro", "uloltangabobo", "uloltangabobo"} -- key here
+local keys = {"sussybaka", "uloltangabobo", "uloltangabobo"} -- key here
 local userkey = ""
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
@@ -154,7 +154,7 @@ end
 
 -- Use the func
 notify("Key System", "The key has been copied to your clipboard. paste it in on google/chrome and complete the key system to able to use the script!", 3)
-setclipboard("https://bstlar.com/Sg/Syo")
+setclipboard("https://bstlar.com/Sg/Sus")
 end)
 
 local Tab = Window:NewTab("Social Media")
@@ -231,4 +231,4 @@ function notify(title, text, duration)
 end
 
 -- Use the func
-notify("Key Changed!", "July 14, 2023", 3)
+notify("Key Changed!", "July 15, 2023", 3)
