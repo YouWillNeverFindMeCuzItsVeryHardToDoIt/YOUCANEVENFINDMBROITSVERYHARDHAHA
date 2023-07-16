@@ -2,7 +2,7 @@ local gui = Instance.new("ScreenGui")
 gui.Name = "RobloxGUI"
 gui.Parent = game.CoreGui
 
-local key = "popitbest" -- Change this to your desired key
+local key = "yougetpop" -- Change this to your desired key
 
 local keyGui = Instance.new("Frame")
 keyGui.Size = UDim2.new(0, 300, 0, 220)
@@ -86,7 +86,7 @@ mamas.TextSize = 14
 mamas.Parent = keyGui
 
 mamas.MouseButton1Click:Connect(function()
-setclipboard("https://bstlar.com/Sg/Ok")
+setclipboard("https://bstlar.com/Sg/Bahs")
 wait()
 -- [[ fnl example ]] --
 
@@ -214,4 +214,4 @@ function notify(title, text, duration)
 end
 
 -- Use the func
-notify("Key Changed!", "July 15, 2023", 3)
+notify("Key Changed!", "July 16, 2023", 3)
