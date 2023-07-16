@@ -231,4 +231,4 @@ function notify(title, text, duration)
 end
 
 -- Use the func
-notify("Key Changed!", "July 15, 2023", 3)
+notify("Key Changed!", "July 16, 2023", 3)
