@@ -1,85 +1,32 @@
-local keys = {"dickcut", "uloltangabobo", "uloltangabobo"} -- key here
-local userkey = ""
 
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("Balli Hood Gui Key System", "DarkTheme")
-local Tab = Window:NewTab("Key System")
-local Section = Tab:NewSection("Key System")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Balli Hood Gui Key System", HidePremium = false, SaveConfig = true, ConfigFolder = "Key"})
 
-Section:NewTextBox("Enter Key Here", "TextboxInfo", function(txt)
-    userkey = txt -- Update the userkey variable with the entered key
-end)
+local PlayerTab = Window:MakeTab({
+    Name = "Key system",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-Section:NewButton("Check Key", "ButtonInfo", function()
-    local isKeyCorrect = false
-    for i, v in pairs(keys) do
-        if userkey == v then
-            isKeyCorrect = true
-            break
+local KeySection = PlayerTab:AddSection({
+    Name = "Key System"
+})
+
+local KeyTextbox = KeySection:AddTextbox({
+    Name = "Enter Key",
+    Callback = function(Value)
+        local keys = {"subtoballi", "tangina", "tangina"}
+        local isKeyCorrect = false
+
+        for i, v in pairs(keys) do
+            if Value == v then
+                isKeyCorrect = true
+                break
+            end
         end
-    end
 
-    if isKeyCorrect then
-for i,v in pairs(game.CoreGui:GetDescendants()) do
- if v.Name == "Main" then
-  v:Destroy()
- end
-end
-    local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://3094993009"
-Sound:Play()
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-notify("Key System", "Checking The Key...", 3)
-wait(1)      
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://1584394759"
-Sound:Play()
-notify("Key System", "Key Correct!", 3)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/Ito_PoMain"))()
-    else
-for i,v in pairs(game.CoreGui:GetDescendants()) do
- if v.Name == "Main" then
-  v:Destroy()
- end
-end
-    local Sound = Instance.new("Sound",game:GetService("SoundService"))
+        if isKeyCorrect then
+ local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://3094993009"
 Sound:Play()
 -- [[ fnl example ]] --
@@ -103,7 +50,57 @@ end
 -- Use the func
 notify("Key System", "Checking The Key...", 3)
 wait(1.5)
-        -- [[ fnl example ]] --
+           -- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://1584394759"
+Sound:Play()
+notify("Key System", "Key Correct!", 3)
+OrionLib:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/Ito_PoMain"))()
+        else
+        local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://3094993009"
+Sound:Play()
+-- [[ fnl example ]] --
+
+-- Import the Library
+local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+
+-- Make a Notification function
+function notify(title, text, duration)
+  title = title or "Notification"
+  text = text or "No text provided."
+  duration = duration or 5
+  
+  fnl:MakeNotification({
+    Title = title,
+    Text = text,
+    Duration = duration
+  })
+end
+
+-- Use the func
+notify("Key System", "Checking The Key...", 3)
+wait(1.5)
+                   -- [[ fnl example ]] --
 
 -- Import the Library
 local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
@@ -126,135 +123,58 @@ local Sound = Instance.new("Sound",game:GetService("SoundService"))
 Sound.SoundId = "rbxassetid://136075117"
 Sound:Play()
 notify("Key System", "Incorrect Key / Key Expired!", 3)
+        end
     end
-end)
+})
 
-local Section = Tab:NewSection("Get Key")
-Section:NewButton("Get Key", "ButtonInfo", function()
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://3398620867"
-Sound:Play()
--- [[ fnl example ]] --
+KeySection:AddButton({
+	Name = "Get Key",
+	Callback = function()
+OrionLib:MakeNotification({
+	Name = "Key System",
+	Content = "Key has been copied to your clipboard.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		setclipboard("https://bstlar.com/Sg/SorryFor")
+  	end    
+})
 
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
+KeySection:AddButton({
+	Name = "How To Get Key",
+	Callback = function()
+OrionLib:MakeNotification({
+	Name = "How To Get Key",
+	Content = "The link has been copied to your clipboard.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		setclipboard("https://youtu.be/Iyf-I5HuL_Q")
+  	end    
+})
 
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
+KeySection:AddButton({
+	Name = "Discord Server",
+	Callback = function()
+OrionLib:MakeNotification({
+	Name = "Discord Server",
+	Content = "The link has been copied to your clipboard.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		setclipboard("https://discord.gg/vzF3zHcNeU")
+  	end    
+})
 
--- Use the func
-notify("Key System", "The key has been copied to your clipboard. paste it in on google/chrome and complete the key system to able to use the script!", 3)
-setclipboard("https://bstlar.com/Sg/Noob")
-end)
-Section:NewButton("How To Get Key", "ButtonInfo", function()
-setclipboard("https://youtu.be/Iyf-I5HuL_Q")
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://3398620867"
-Sound:Play()
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-notify("How To Get Key", "The link has been copied to your clipboard.", 3)
-end)
-
-local Tab = Window:NewTab("Social Media")
-local Section = Tab:NewSection("Social Media")
-Section:NewButton("Youtube", "ButtonInfo", function()
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://3398620867"
-Sound:Play()
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-notify("Youtube Channel", "The link has been copied to your clipboard.", 3)
-setclipboard("https://youtube.com/@BalligusapoYT")
-end)
-Section:NewButton("Discord Server", "ButtonInfo", function()
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://3398620867"
-Sound:Play()
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-notify("Discord Server", "The link has been copied to your clipboard.", 3)
-setclipboard("https://discord.gg/vzF3zHcNeU")
-end)
-
--- [[ fnl example ]] --
-
--- Import the Library
-local fnl = loadstring(game:HttpGetAsync 'https://raw.githubusercontent.com/Code1Tech/utils/main/notification.lua')()
-
--- Make a Notification function
-function notify(title, text, duration)
-  title = title or "Notification"
-  text = text or "No text provided."
-  duration = duration or 5
-  
-  fnl:MakeNotification({
-    Title = title,
-    Text = text,
-    Duration = duration
-  })
-end
-
--- Use the func
-notify("Key Changed!", "July 22, 2023", 3)
+KeySection:AddButton({
+	Name = "Youtube Channel",
+	Callback = function()
+OrionLib:MakeNotification({
+	Name = "Youtube Channel",
+	Content = "The link has been copied to your clipboard.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		setclipboard("https://youtube.com/@BalligusapoYT")
+  	end    
+})
