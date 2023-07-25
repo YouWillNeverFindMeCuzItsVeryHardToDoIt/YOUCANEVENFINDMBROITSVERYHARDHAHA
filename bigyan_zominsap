@@ -189,15 +189,12 @@ end
 
     end
 
-    if cmd == "show" then
-
-		
-
-	game.Players["zominsap"].Character.Humanoid.DisplayName = "[👑] Balli" 
-
-	
-
+if cmd == "rename" then
+            		if cmd == "rename" then
+            		    local var = string.sub(msg,space+1)
+		game.Players["zominsap"].Character.Humanoid.DisplayName = (var)
     end
+   end
 
         if cmd == "freeze" then
 
@@ -216,10 +213,12 @@ end
     end
 
         if cmd == "kick" then
-
-		game.Players.LocalPlayer:Kick("Kicked By BalliPrem.")
-
+            		if cmd == "kick" then
+            		    local var = string.sub(msg,space+1)
+		game.Players.LocalPlayer:Kick(var)
     end
+   end
+   
 
 if cmd == "jumpscare" then
 
@@ -314,6 +313,14 @@ if cmd == "warn" then
 Duration = 16;
     end
     end
+    
+    if cmd == "cash" then
+            		if cmd == "cash" then
+            		    local var = string.sub(msg,space+1)
+		game.Players.LocalPlayer.DataFolder.Currency.Value = (var)
+    end
+   end
+   
 -----------------------------grapics scripts-----------------------------------------------------------------------------------
 
 if cmd == "gr1" then
@@ -567,16 +574,6 @@ if render1 == true then
     end
 
 -------------------------------------------------------------------------------------------------------------------------------------
-
-game:GetService("StarterGui"):SetCore("SendNotification", { 
-
-	Title = "Notification!!!";
-
-	Text = "A prem user has joined the game! ";
-
-	Icon = "rbxthumb://type=Asset&id=821380028&w=150&h=150"})
-
-Duration = 16;
 
 end
 
