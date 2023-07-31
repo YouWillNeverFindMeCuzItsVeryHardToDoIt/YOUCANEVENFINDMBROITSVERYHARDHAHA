@@ -15,7 +15,7 @@ local KeySection = PlayerTab:AddSection({
 local KeyTextbox = KeySection:AddTextbox({
     Name = "Enter Key",
     Callback = function(Value)
-        local keys = {"macrosoon", "tangina", "tangina"}
+        local keys = {"newupdate", "tangina", "tangina"}
         local isKeyCorrect = false
 
         for i, v in pairs(keys) do
@@ -198,4 +198,4 @@ function notify(title, text, duration)
 end
 
 -- Use the func
-notify("Key Changed!", "July 30, 2023", 3)
+notify("Key Changed!", "July 31, 2023", 3)
