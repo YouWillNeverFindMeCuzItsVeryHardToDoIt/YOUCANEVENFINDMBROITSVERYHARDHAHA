@@ -15,7 +15,7 @@ local KeySection = PlayerTab:AddSection({
 local KeyTextbox = KeySection:AddTextbox({
     Name = "Enter Key",
     Callback = function(Value)
-        local keys = {"newupdate", "tangina", "tangina"}
+        local keys = {"babagrill", "tangina", "tangina"}
         local isKeyCorrect = false
 
         for i, v in pairs(keys) do
@@ -136,7 +136,7 @@ OrionLib:MakeNotification({
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-      		setclipboard("https://bstlar.com/Sg/Oaoaoa")
+      		setclipboard("https://bstlar.com/Sg/keyeleue")
   	end    
 })
 
@@ -198,4 +198,4 @@ function notify(title, text, duration)
 end
 
 -- Use the func
-notify("Key Changed!", "July 31, 2023", 3)
+notify("Key Changed!", "Aug 6, 2023", 3)
