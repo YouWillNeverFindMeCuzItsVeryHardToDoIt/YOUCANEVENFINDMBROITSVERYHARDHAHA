@@ -1,4 +1,4 @@
-local keys = {"poggers", "uloltangabobo", "uloltangabobo"} -- key here
+local keys = {"welcomeback", "premiumkey", "uloltangabobo"} -- key here
 local userkey = ""
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
@@ -71,7 +71,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Text = "Key has been copied to your clipboard.";
 	Icon = "rbxthumb://type=Asset&id=10825594202&w=150&h=150"})
 Duration = 16;
-setclipboard("https://direct-link.net/394920/key-system7")
+setclipboard("https://link-target.net/394920/key-system-balli-hood-gui")
 end)
 Section:NewButton("How To Get Key", "ButtonInfo", function()
 local Sound = Instance.new("Sound",game:GetService("SoundService"))
@@ -113,6 +113,6 @@ Sound.SoundId = "rbxassetid://3398620867"
 Sound:Play()
 game:GetService("StarterGui"):SetCore("SendNotification", { 
 	Title = ("Key Changed");
-	Text = "Sep 28 2023.";
+	Text = "Oct 26 2023.";
 	Icon = "rbxthumb://type=Asset&id=13617468046&w=150&h=150"})
 Duration = 16;
