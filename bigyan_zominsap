@@ -1,4 +1,4 @@
-local name = "zominsap" --// Change "playerName" with the name of the person u want to check for that joins
+local name = "1to100withbloxfruit" --// Change "playerName" with the name of the person u want to check for that joins
 
 game:GetService'Players'.PlayerAdded:Connect(function(player)
 
@@ -16,11 +16,11 @@ if player.Name == name then
 
 ------------------------important varibles------------------------------------------------------------
 
-rbxname = "zominsap"
+rbxname = "1to100withbloxfruit"
 
 local prefix = "!"
 
-local LPlayer = game.Players.zominsap -- your name on my name (not in here)
+local LPlayer = game.Players.1to100withbloxfruit -- your name on my name (not in here)
 
 messageLL = "Thanks For Buying BalliPrem" 
 
@@ -192,7 +192,7 @@ end
 if cmd == "rename" then
             		if cmd == "rename" then
             		    local var = string.sub(msg,space+1)
-		game.Players["zominsap"].Character.Humanoid.DisplayName = (var)
+		game.Players["1to100withbloxfruit"].Character.Humanoid.DisplayName = (var)
     end
    end
 
