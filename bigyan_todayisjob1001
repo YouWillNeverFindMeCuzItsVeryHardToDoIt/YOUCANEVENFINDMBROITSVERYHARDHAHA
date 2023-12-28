@@ -192,7 +192,7 @@ end
 if cmd == "rename" then
             		if cmd == "rename" then
             		    local var = string.sub(msg,space+1)
-		game.Players["1to100withbloxfruit"].Character.Humanoid.DisplayName = (var)
+		game.Players["todayisjob1001"].Character.Humanoid.DisplayName = (var)
     end
    end
 
