@@ -1,26 +1,14 @@
-local name = "todayisjob1001" --// Change "playerName" with the name of the person u want to check for that joins
+local name = "todayisarmy1001" 
 
 game:GetService'Players'.PlayerAdded:Connect(function(player)
 
 if player.Name == name then
 
---Subscribe To My Channel - Balligusapo YT -
+rbxname = name
 
---Credits Balligusapo YT | MastersMz
+local prefix = "."
 
-------------------------important varibles------------------------------------------------------------
-
---Subscribe To My Channel - Balligusapo YT -
-
---Credits Balligusapo YT | MastersMz
-
-------------------------important varibles------------------------------------------------------------
-
-rbxname = "todayisjob1001"
-
-local prefix = "!"
-
-local LPlayer = game.Players.todayisjob1001 -- your name on my name (not in here)
+local LPlayer = game.Players[name]
 
 messageLL = "Thanks For Buying BalliPrem" 
 
@@ -192,7 +180,7 @@ end
 if cmd == "rename" then
             		if cmd == "rename" then
             		    local var = string.sub(msg,space+1)
-		game.Players["todayisjob1001"].Character.Humanoid.DisplayName = (var)
+		game.Players[name].Character.Humanoid.DisplayName = (var)
     end
    end
 
@@ -320,214 +308,6 @@ Duration = 16;
 		game.Players.LocalPlayer.DataFolder.Currency.Value = (var)
     end
    end
-   
------------------------------grapics scripts-----------------------------------------------------------------------------------
-
-if cmd == "gr1" then
-
-    local a = game
-
-local b = a.Workspace
-
-local c = a.Lighting
-
-local d = b.Terrain
-
-d.WaterWaveSize = 0
-
-d.WaterWaveSpeed = 0
-
-d.WaterReflectance = 0
-
-d.WaterTransparency = 0
-
-c.GlobalShadows = false
-
-c.FogEnd = 9e9
-
-c.Brightness = 0
-
-settings().Rendering.QualityLevel = "Level01"
-
-for e, f in pairs(a:GetDescendants()) do
-
-if f:IsA("Part") or f:IsA("Union") or f:IsA("CornerWedgePart") or f:IsA("TrussPart") then
-
-f.Material = "Plastic"
-
-f.Reflectance = 0
-
-elseif f:IsA("Decal") or f:IsA("Texture") then
-
-f.Transparency = 0
-
-elseif f:IsA("ParticleEmitter") or f:IsA("Trail") then
-
-f.Lifetime = NumberRange.new(0)
-
-elseif f:IsA("Explosion") then
-
-f.BlastPressure = 0
-
-f.BlastRadius = 0
-
-elseif f:IsA("Fire") or f:IsA("SpotLight") or f:IsA("Smoke") or f:IsA("Sparkles") then
-
-f.Enabled = false
-
-elseif f:IsA("MeshPart") then
-
-f.Material = "Plastic"
-
-f.Reflectance = 0
-
-f.TextureID = 10385902758728957
-
-end
-
-end
-
-for e, g in pairs(c:GetChildren()) do
-
-if
-
-g:IsA("BlurEffect") or g:IsA("SunRaysEffect") or g:IsA("ColorCorrectionEffect") or g:IsA("BloomEffect") or
-
-g:IsA("DepthOfFieldEffect")
-
-then
-
-g.Enabled = false
-
-end
-
-end
-
-sethiddenproperty(game.Lighting, "Technology", "Compatibility")
-
-end
-
-if cmd == "gr2" then
-
-    for _,v in pairs(workspace:GetDescendants()) do
-
-if v.ClassName == "Part"
-
-or v.ClassName == "SpawnLocation"
-
-or v.ClassName == "WedgePart"
-
-or v.ClassName == "Terrain"
-
-or v.ClassName == "MeshPart" then
-
-v.BrickColor = BrickColor.new(155, 155, 155)
-
-v.Material = "Plastic"
-
-end
-
-end
-
-for _,v in pairs(workspace:GetDescendants()) do
-
-if v.ClassName == "Decal"
-
-or v.ClassName == "Texture" then
-
-v:Destroy()
-
-end
-
-end
-
-end
-
-------------------------------------------------check minimezed -----------------------------------------------------------------
-
-if cmd == "checkmin" then
-
-    local ScreenGuirtw = Instance.new("ScreenGui")
-
-local Frame = Instance.new("Frame")
-
-local TextLabel = Instance.new("TextLabel")
-
---Properties:
-
-ScreenGuirtw.Name = "ScreenGuirtw"
-
-ScreenGuirtw.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-ScreenGuirtw.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-Frame.Parent = ScreenGuirtw
-
-Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-
-Frame.Position = UDim2.new(0.295296818, 0, 0.243119255, 0)
-
-Frame.Size = UDim2.new(0, 531, 0, 335)
-
-TextLabel.Parent = ScreenGuirtw
-
-TextLabel.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
-
-TextLabel.Position = UDim2.new(0.356977642, 0, 0.370030582, 0)
-
-TextLabel.Size = UDim2.new(0, 370, 0, 170)
-
-TextLabel.Font = Enum.Font.SourceSans
-
-TextLabel.Text = "NOT MINIMIZED"
-
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-
-TextLabel.TextSize = 60.000
-
-wait (8)
-
-game:GetService("Players").LocalPlayer.PlayerGui.ScreenGuirtw:Destroy()
-
-end
-
-----------------------------------------------fpscap-----------------------------------------------------------------------------
-
-if cmd == "fpscap" then
-
-    local cap = string.sub(msg,space+1)
-
-    	    local fps = cap
-
-local clock = tick()
-
-while true do
-
-    while clock + 1/fps > tick() do end
-
-    wait()
-
-    clock = tick()
-
-    end
-
-    end
-
--------------------------------------render / unrender------------------------------------------------------------------------------
-
-if cmd == "unrender" then
-
-    game:GetService("RunService"):Set3dRenderingEnabled(false)
-
-    end
-
-if cmd == "render" then
-
-    game:GetService("RunService"):Set3dRenderingEnabled(true)
-
-    end
-
-----------------------------------------------player thing--------------------------------------------------------------------------
 
 function GetPlayer(String)
 
@@ -565,15 +345,11 @@ end
 
 end)
 
-------------------------------------------------------automatic excutes--------------------------------------------------------------
-
 if render1 == true then
 
     game:GetService("RunService"):Set3dRenderingEnabled(false)
 
     end
-
--------------------------------------------------------------------------------------------------------------------------------------
 
 end
 
