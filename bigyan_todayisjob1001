@@ -40,22 +40,6 @@ messageLL = "Thanks For Buying BalliPrem"
 
 --showtags show your tags
 
----------------grapics commands-------------------------------------------------------------------------
-
---gr1 reduces grapics on alts more cpu power and gpu
-
---gr2 same as gr1 just much more 
-
---fpscap - number fps cap 
-
---unrender REALLY good for performance 
-
---render renders 
-
---checkmin checks if you have minimezed tabs
-
---------------------------------------------------------------------------------------------------------
-
 LPlayer.Chatted:Connect(function(msg)
 
 	msg = msg:lower()	if string.sub(msg,1,3) == "/e " then
@@ -308,6 +292,29 @@ Duration = 16;
 		game.Players.LocalPlayer.DataFolder.Currency.Value = (var)
     end
    end
+   
+if cmd == "teleport" then
+    local var = string.sub(msg, space + 1)
+    
+    -- Replace 'LocalPlayer' with the actual reference to the player you want to teleport
+    local localPlayer = game.Players.LocalPlayer
+    
+    -- Function to get a short version of the player's name
+    local function getShortName(player)
+        return player.Name:sub(1, 1) -- Adjust the number to the desired length
+    end
+    
+    -- Check if the target player exists
+    local targetPlayer = game.Players:FindFirstChild(var)
+    
+    if targetPlayer then
+        -- Teleport the local player to the target player's character
+        localPlayer.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
+        print('Teleported to ' .. getShortName(targetPlayer))
+    else
+        warn('Player not found: ' .. var)
+    end
+end
 
 function GetPlayer(String)
 
