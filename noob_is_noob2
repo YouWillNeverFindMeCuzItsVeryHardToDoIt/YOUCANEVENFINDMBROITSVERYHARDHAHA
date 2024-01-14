@@ -1,4 +1,6 @@
 This is the new content
+
+This is the new content
 local name = "Noooooob_you" 
 
 game:GetService'Players'.PlayerAdded:Connect(function(player)
