@@ -1,190 +1,30 @@
-import discord
-from discord.ext import commands
-from github import Github
-import os
-from base64 import b64decode
-from uuid import uuid4
-from flask import Flask
-from threading import Thread
+-- List of whitelisted player names
+local whitelist = {
+["tetgjf"] = true,
+}
 
-app = Flask('')
+-- Function to check if a player is whitelisted
+local function isWhitelisted(player)
+    return whitelist[player.Name] == true
+end
 
-@app.route('/')
-def main():
-    return "Your bot is alive!"
+-- Function to handle player joining
+game.Players.PlayerAdded:Connect(function(player)
+    if not isWhitelisted(player) then
+        player:Kick("You are not whitelisted please buy the script!")
+    else
+        print(player.Name .. " has joined the game.")
+        -- Activate loadstring for whitelisted players
+        loadstring(game:HttpGet("https://pastebin.com/raw/PET9Ah5R"))()
+    end
+end)
 
-def run():
-    app.run(host="0.0.0.0", port=8080)
-
-def keep_alive():
-    server = Thread(target=run)
-    server.start()
-
-bot = commands.Bot(command_prefix='!', intents=discord.Intents.all(), case_insensitive=True)
-
-WL = [955295511072604181, 767927710461722624]  # user IDs allowed to use the command
-
-def is_allowed_user(ctx):
-    return ctx.author.id in WL
-
-@bot.command(name='whitelist')
-@commands.check(is_allowed_user)
-async def whitelist(ctx, username, type_arg='normal'):
-    try:
-        gt = os.environ["gt"]  # github token
-        rn = os.environ["gr"]  # username/repo format
-
-        valid_types = ['normal', 'owner']
-        if type_arg not in valid_types:
-            await ctx.send(f"")
-            return
-
-        if username.lower() in ['normal', 'owner']:
-            await ctx.send(f"Error: 'normal' and 'owner' are types. Please choose a different username.")
-            return
-
-        with open('list.txt', 'r') as user_file:
-            lines = user_file.readlines()
-            existing_users = [line.strip().split(' - ')[0].lower() for line in lines]
-
-        if username.lower() in existing_users:
-            await ctx.send(f"Error: The username '{username}' already exists in the whitelist.")
-            return
-
-        template_file = 'template.lua' if type_arg == 'normal' else 'otemplate.lua'
-
-        with open(template_file, 'r') as lf:
-            uc = lf.read()
-
-        # Construct the new line to be added
-        new_line = f'["{username}"] = true,'
-
-        # Add the new line to the whitelist table
-        updated_uc = uc.replace("local whitelist = {
-["fjdj"] = true,
-", f"local whitelist = {
-["fjdj"] = true,
-{\n{new_line}")
-
-        # Update the template.lua file
-        with open(template_file, 'w') as lf:
-            lf.write(updated_uc)
-
-        g = Github(gt)
-        repo = g.get_repo(rn)
-        uuid = str(uuid4())[:8]
-
-        fn = f"{username}-{type_arg}-{uuid}"
-
-        # Create a new file in the repository named Popitlist and set its content
-        file_upd = "Popitlist"
-        new_content = updated_uc
-
-        try:
-            file = repo.get_contents(file_upd)
-            repo.update_file(
-                path=file_upd,
-                message=f"Updated file {file_upd}",
-                content=new_content,
-                sha=file.sha,
-                branch="main"
-            )
-
-            with open('list.txt', 'a') as user_file:
-                user_file.write(f"\n{username} - {type_arg} - {uuid}")
-
-            await ctx.send(f"Successfully whitelisted {username} with type {type_arg}!")
-        except Exception as e:
-            await ctx.send(f"Error: {e}")
-
-    except Exception as e:
-        await ctx.send(f"Error: {e}")
-
-@bot.command(name='list')
-async def list_users(ctx, ft=None):
-    try:
-        with open('list.txt', 'r') as uf:
-            lines = [line.strip() for line in uf.readlines() if line.strip()]
-
-        if ft == 'owner':
-            fu = [line for line in lines if ' - owner' in line.lower()]
-        elif ft == 'normal':
-            fu = [line for line in lines if ' - normal' in line.lower()]
-        else:
-            fu = lines
-
-        if not fu:
-            await ctx.send(f"No users found with the specified filter: {ft}")
-
-        else:
-            formatted_list = '\n'.join(fu)
-            await ctx.send(f"**Whitelisted Users:**\n{formatted_list}")
-
-    except Exception as e:
-        await ctx.send(f"Error: {e}")
-
-@bot.command(name='unwhitelist')
-@commands.check(is_allowed_user)
-async def unwhitelist(ctx, username):
-    try:
-        gt = os.environ["gt"]  # GitHub token
-        rn = os.environ["gr"]  # Username/repo format
-
-        # Read the current whitelist from list.txt
-        with open('list.txt', 'r') as user_file:
-            lines = user_file.readlines()
-            eu = [line.strip().split(' - ')[0].lower() for line in lines]
-
-        # Check if the username exists in the whitelist
-        if username.lower() not in eu:
-            await ctx.send(f"Error: The username '{username}' does not exist in the whitelist.")
-            return
-
-        # Remove the username from list.txt
-        with open('list.txt', 'w') as user_file:
-            for line in lines:
-                if line.strip().split(' - ')[0].lower() != username.lower():
-                    user_file.write(line)
-
-        # Read the contents of template.lua
-        with open('template.lua', 'r') as template_file:
-            template_content = template_file.read()
-
-        # Remove the username from template.lua
-        updated_template_content = template_content.replace(f'["{username}"] = true,', '')
-
-        # Update template.lua with the modified content
-        with open('template.lua', 'w') as template_file:
-            template_file.write(updated_template_content)
-
-        # Get the GitHub repository
-        g = Github(gt)
-        repo = g.get_repo(rn)
-
-        # Get the contents of the Popitlist file
-        try:
-            file = repo.get_contents("Popitlist")
-            oc = b64decode(file.content).decode("utf-8")
-            rmstr = f'["{username}"] = true,'
-            upc = oc.replace(rmstr, '').strip()
-
-            # Update the Popitlist file on GitHub
-            repo.update_file(
-                path="Popitlist",
-                message=f"Updated Popitlist file",
-                content=upc,
-                sha=file.sha,
-                branch="main"
-            )
-
-            await ctx.send(f"Successfully unwhitelisted {username}!")
-        except Exception as e:
-            await ctx.send(f"Error updating Popitlist file: {e}")
-
-    except Exception as e:
-        await ctx.send(f"Error: {e}")
-
-bot_token = os.environ["token"]
-keep_alive()
-bot.run(bot_token)
-                        
+-- Check existing players
+for _, player in ipairs(game.Players:GetPlayers()) do
+    if not isWhitelisted(player) then
+        player:Kick("You are not whitelisted please buy the script!")
+    else
+        -- Activate loadstring for  players
+        loadstring(game:HttpGet("https://pastebin.com/raw/PET9Ah5R"))()
+    end
+end
