@@ -61,7 +61,9 @@ async def whitelist(ctx, username, type_arg='normal'):
 
         # Add the new line to the whitelist table
         updated_uc = uc.replace("local whitelist = {
+["fjdj"] = true,
 ", f"local whitelist = {
+["fjdj"] = true,
 {\n{new_line}")
 
         # Update the template.lua file
@@ -185,3 +187,4 @@ async def unwhitelist(ctx, username):
 bot_token = os.environ["token"]
 keep_alive()
 bot.run(bot_token)
+                        
