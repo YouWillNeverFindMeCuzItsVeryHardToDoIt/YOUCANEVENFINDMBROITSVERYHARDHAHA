@@ -1,0 +1,31 @@
+-- List of whitelisted player names
+["e"] = true,
+local whitelist = {
+    ["placeholder_username"] = true,
+}
+
+-- Function to check if a player is whitelisted
+local function isWhitelisted(player)
+    return whitelist[player.Name] == true
+end
+
+-- Function to handle player joining
+game.Players.PlayerAdded:Connect(function(player)
+    if not isWhitelisted(player) then
+        player:Kick("You are not whitelisted please buy the script!")
+    else
+        print(player.Name .. " has joined the game.")
+        -- Activate loadstring for whitelisted players
+        loadstring(game:HttpGet("https://pastebin.com/raw/PET9Ah5R"))()
+    end
+end)
+
+-- Check existing players
+for _, player in ipairs(game.Players:GetPlayers()) do
+    if not isWhitelisted(player) then
+        player:Kick("You are not whitelisted please buy the script!")
+    else
+        -- Activate loadstring for whitelisted players
+        loadstring(game:HttpGet("https://pastebin.com/raw/PET9Ah5R"))()
+    end
+end
