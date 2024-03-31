@@ -1,5 +1,7 @@
 -- List of whitelisted player names
 local whitelist = {
+["ef"] = true,
+
 ["waaaa"] = true,
 
     ["placeholder_username"] = true,
