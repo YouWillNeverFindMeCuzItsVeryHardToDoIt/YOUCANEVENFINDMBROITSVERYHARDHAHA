@@ -8,7 +8,6 @@ local whitelist = {
 ["Hunterkiller2425"] = true,
 ["David240710"] = true,
 ["mikey12th123"] = true,
-["EdiPuiut"] = true,
 ["EJGAMINGGGXXXDYT"] = true,
 ["vincentthemazeoflege"] = true,
 ["KimberlyBranch5"] = true,
@@ -27,7 +26,7 @@ game.Players.PlayerAdded:Connect(function(player)
     else
         print(player.Name .. " has joined the game.")
         -- Activate loadstring for whitelisted players
-        
+
     end
 end)
 
@@ -37,6 +36,6 @@ for _, player in ipairs(game.Players:GetPlayers()) do
         player:Kick("You are not whitelisted please buy the script!")
     else
         -- Activate loadstring for  players
-        loadstring(game:HttpGet("https://pastebin.com/raw/cgqDDSwh"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/7LBeT2in"))()
     end
 end
