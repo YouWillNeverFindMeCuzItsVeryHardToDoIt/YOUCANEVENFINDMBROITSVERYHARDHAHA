@@ -1,5 +1,6 @@
 -- List of whitelisted player names
 local whitelist = {
+["M8_k3r"] = true,
 ["SaitamaDgold"] = true,
 ["mohamrd5566"] = true,
 ["Smg_434"] = true,
@@ -17,7 +18,6 @@ local whitelist = {
 ["EJGAMINGGGXXXDYT"] = true,
 ["vincentthemazeoflege"] = true,
 ["KimberlyBranch5"] = true,
-
 }
 
 -- Function to check if a player is whitelisted
