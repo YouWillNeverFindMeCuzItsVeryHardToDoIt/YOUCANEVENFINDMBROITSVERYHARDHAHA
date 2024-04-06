@@ -1,7 +1,7 @@
 -- List of whitelisted player names
 local whitelist = {
-["M8_k3r"] = true,
 ["SaitamaDgold"] = true,
+["M8_k3r"] = true,
 ["mohamrd5566"] = true,
 ["Smg_434"] = true,
 ["yunar55"] = true,
