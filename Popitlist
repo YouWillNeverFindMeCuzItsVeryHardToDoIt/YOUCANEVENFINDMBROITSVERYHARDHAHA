@@ -17,7 +17,7 @@ local whitelist = {
 ["EJGAMINGGGXXXDYT"] = true,
 ["vincentthemazeoflege"] = true,
 ["KimberlyBranch5"] = true,
-["gosubnowpls"] = true,
+
 }
 
 -- Function to check if a player is whitelisted
