@@ -7,7 +7,7 @@ local whitelist = {
 
 
 
-["35"] = true,
+
 
 
 ["gosubnowpls"] = true,
