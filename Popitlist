@@ -2,7 +2,7 @@
 local whitelist = {
 
 
-["vro"] = true,
+
 ["f"] = true,
 
 ["LurewKai"] = true,
