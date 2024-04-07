@@ -2,7 +2,7 @@
 local whitelist = {
 
 ["tet"] = true,
-["tes"] = true,
+
 ["fbd"] = true,
 
 
