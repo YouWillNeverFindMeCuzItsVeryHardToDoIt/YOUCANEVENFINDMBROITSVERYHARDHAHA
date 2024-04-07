@@ -1,5 +1,15 @@
-
+-- Whit
+    "tst",elist script content
 local whitelist = {
+["fjsj"] = true,
+["test"] = true,
+["t"] = true,
+    ["BruhCash4Me"] = true,
+    ["SubtoxivixYT"] = true,
+    -- Add more whitelisted players here
+    ["tdisi"] = true,
+    "holad",
+    "testfs",
 }
 
 local function isWhitelisted(player)
@@ -13,3 +23,12 @@ else
     print("Welcome, " .. player.Name .. "!")
     -- Continue executing the rest of the script
 end
+
+"tesf - f",
+"f - c",
+"f - c",
+"f - c",
+["testsf"] = true,
+["tfs"] = true,
+    ["tesft"] = true,
+    Put it here
