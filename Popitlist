@@ -1,5 +1,6 @@
 -- List of whitelisted player names
 local whitelist = {
+["test"] = true,
 ["35"] = true,
 ["1"] = true,
 ["balli"] = true,
