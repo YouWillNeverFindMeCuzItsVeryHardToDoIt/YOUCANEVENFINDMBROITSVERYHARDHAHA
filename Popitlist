@@ -26,3 +26,5 @@ end
 "f - c",
 ["testsf"] = true,
 ["tfs"] = true,
+    ["tesft"] = true,
+    Put it here
