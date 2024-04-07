@@ -1,16 +1,5 @@
--- Whit
-    "tst",elist script content
+
 local whitelist = {
-["fjsj"] = true,
-["test"] = true,
-["t"] = true,
-    ["BruhCash4Me"] = true,
-    ["SubtoxivixYT"] = true,
-    -- Add more whitelisted players here
-    ["fjdjd"] = true,
-    ["tdisi"] = true,
-    "holad",
-    "testfs",
 }
 
 local function isWhitelisted(player)
