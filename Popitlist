@@ -4,7 +4,7 @@ local whitelist = {
 
 ["tsstbri"] = true,
 ["tet"] = true,
-["d"] = true,
+
 ["f"] = true,
 ["test"] = true,
 ["35"] = true,
