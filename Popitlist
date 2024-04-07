@@ -4,7 +4,7 @@ local whitelist = {
 ["tet"] = true,
 ["tes"] = true,
 ["fbd"] = true,
-["teat"] = true,
+
 ["muradjan1"] = true,
 ["gosubnowpls"] = true,
 ["LurewKai"] = true,
