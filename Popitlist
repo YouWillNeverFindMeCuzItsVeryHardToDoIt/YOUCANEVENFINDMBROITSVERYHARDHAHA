@@ -1,11 +1,6 @@
 -- Whitelist script content
 local whitelist = {
-["fjsj"] = true,
-["test"] = true,
-["t"] = true,
-    ["BruhCash4Me"] = true,
-    ["SubtoxivixYT"] = true,
-    -- Add more whitelisted players here
+-- Add more whitelisted players here
 }
 
 local function isWhitelisted(player)
@@ -19,8 +14,3 @@ else
     print("Welcome, " .. player.Name .. "!")
     -- Continue executing the rest of the script
 end
-
-"tesf - f",
-"f - c",
-"f - c",
-"f - c",
