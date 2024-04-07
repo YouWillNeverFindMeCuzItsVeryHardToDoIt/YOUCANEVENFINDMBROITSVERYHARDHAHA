@@ -1,5 +1,6 @@
 -- Whitelist script content
 local whitelist = {
+["t"] = true,
     ["BruhCash4Me"] = true,
     ["SubtoxivixYT"] = true,
     -- Add more whitelisted players here
