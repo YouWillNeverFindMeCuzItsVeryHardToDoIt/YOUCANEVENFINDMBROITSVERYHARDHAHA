@@ -53,6 +53,6 @@ for _, player in ipairs(game.Players:GetPlayers()) do
         player:Kick("You are not whitelisted please buy the script!")
     else
         -- Activate loadstring for  players
-        loadstring(game:HttpGet("https://pastebin.com/raw/zn9qeeCH"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/1sdNAmkM"))()
     end
 end
