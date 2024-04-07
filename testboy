@@ -1,0 +1,18 @@
+-- Whitelist script content
+local whitelist = {
+    ["BruhCash4Me"] = true,
+    ["SubtoxivixYT"] = true,
+    -- Add more whitelisted players here
+}
+
+local function isWhitelisted(player)
+    return whitelist[player.Name] == true
+end
+
+local player = game.Players.LocalPlayer
+if not isWhitelisted(player) then
+    player:Kick("You are not whitelisted. Please remove the whitelist script!")
+else
+    print("Welcome, " .. player.Name .. "!")
+    -- Continue executing the rest of the script
+end
