@@ -3,7 +3,7 @@ local whitelist = {
 
 
 ["tsstbri"] = true,
-["tet"] = true,
+
 
 
 ["test"] = true,
