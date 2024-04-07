@@ -1,6 +1,6 @@
 -- List of whitelisted player names
 local whitelist = {
-["1"] = true,
+
 ["tet"] = true,
 ["tes"] = true,
 ["fbd"] = true,
