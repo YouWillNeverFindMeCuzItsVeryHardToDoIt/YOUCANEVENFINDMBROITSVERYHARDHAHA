@@ -2,7 +2,7 @@
 local whitelist = {
 ["balligusapo"] = true,
 ["balli"] = true,
-["ball"] = true,
+
 ["hi"] = true,
 ["gosubnowpls"] = true,
 ["LurewKai"] = true,
