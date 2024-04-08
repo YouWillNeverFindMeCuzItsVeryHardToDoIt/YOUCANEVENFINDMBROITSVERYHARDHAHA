@@ -2,7 +2,7 @@
 local whitelist = {
 
 
-["hi"] = true,
+
 ["<@767927710461722624>"] = true,
 ["gosubnowpls"] = true,
 ["LurewKai"] = true,
